@@ -1,0 +1,24 @@
+# MATLAB / Simulink build & cache artifacts
+slprj/
+*.slxc
+*.autosave
+*.asv
+codegen/
+*.mexa64
+*.mexmaci64
+*.mexw64
+*.mexw32
+*.mex*
+
+# Simulink 3D Animation runtime cache
+*.wrz
+
+# OS / editor cruft
+.DS_Store
+Thumbs.db
+*.swp
+
+# User-created environments and scratch mission data are intentionally
+# NOT ignored — environments/ is meant to be committed/shared. If you
+# want to keep a personal environment private, ignore it explicitly:
+# environments/my-private-room/

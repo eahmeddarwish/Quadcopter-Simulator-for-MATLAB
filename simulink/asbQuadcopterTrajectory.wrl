@@ -1,0 +1,50 @@
+#VRML V2.0 utf8
+
+EXTERNPROTO MarkerProto [
+  exposedField SFVec3f Translation
+]
+"asbWaypointMarker.wrl#MarkerProto" 
+
+DEF LineTransform Transform {
+  children DEF LineShape Shape {
+    appearance DEF LineAppearance Appearance {
+      material Material {
+        diffuseColor 1 0 0.2
+      }
+    }
+    geometry DEF LineIndexedList IndexedLineSet {
+      coordIndex [
+        0, 1, 2, 3, -1 
+      ]
+      coord DEF LineCoordinates Coordinate {
+        point [
+          34 0 22,
+          34 16.15 22,
+          33.9782 16.15 21.9962,
+          33.9563 0 21.9927 
+        ]
+      }
+      color Color {
+        color 1 0 0.4
+      }
+    }
+  }
+}
+DEF Marker_Start MarkerProto {
+  Translation 57 0 95
+}
+DEF Marker_End MarkerProto {
+  Translation 57 0 95
+}
+DEF Marker_1 MarkerProto {
+  Translation 57 16.15 95
+}
+DEF Marker_2 MarkerProto {
+  Translation 0 16.15 0
+}
+DEF Marker_3 MarkerProto {
+  Translation 0 16.15 0
+}
+DEF Marker_4 MarkerProto {
+  Translation 57 16.15 95
+}

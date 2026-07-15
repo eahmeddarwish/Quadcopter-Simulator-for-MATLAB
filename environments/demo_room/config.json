@@ -1,0 +1,52 @@
+{
+  "schema_version": 1,
+  "name": "demo_room",
+  "description": "Small synthetic demo space (not a real building) so AprilNav runs out of the box. Replace with your own environment via AprilNav_EnvironmentSetup.",
+  "created": "2026-07-15 00:00:00",
+  "map": {
+    "image": "map.png",
+    "scale_m_per_px": 0.05,
+    "origin_px": [30, 380],
+    "bounds_px": {"x_min": 0, "x_max": 500, "y_min": 0, "y_max": 400}
+  },
+  "flight": {
+    "cruise_altitude_m": 1.2,
+    "max_altitude_m": 2.5,
+    "hover_speed_rad_s": 733,
+    "step_time_s": 10
+  },
+  "vehicle": {
+    "mass_kg": 1.2,
+    "Ixx": 0.0129,
+    "Iyy": 0.0129,
+    "Izz": 0.024,
+    "thrust_coeff_b": 1.105e-05,
+    "drag_coeff_d": 1.492e-07,
+    "arm_length_m": 0.225
+  },
+  "tags": [
+    {"id": 1, "name": "Tag_1", "x_m": 8.0, "y_m": 4.0, "z_m": 0, "detect_radius_m": 0.5, "dwell_s": 10},
+    {"id": 2, "name": "Tag_2", "x_m": 16.0, "y_m": 4.0, "z_m": 0, "detect_radius_m": 0.5, "dwell_s": 10}
+  ],
+  "obstacles": [
+    {"x_m": 12.0, "y_m": 8.0, "height_m": 1.0}
+  ],
+  "paths": [
+    {
+      "name": "Out and back",
+      "description": "Straight out along the room and back to home.",
+      "x_px": [30, 30, 260, 460, 260, 30, 30],
+      "y_px": [380, 380, 380, 380, 380, 380, 380],
+      "z_m": [0, 1.2, 1.2, 1.2, 1.2, 1.2, 0]
+    }
+  ],
+  "simulink": {
+    "model_name": "QuadcopterDynamics_R2024a",
+    "vr_enabled": false
+  },
+  "detection": {
+    "mode": "simulated",
+    "tag_family": "tag36h11",
+    "tag_size_m": 0.16
+  }
+}
