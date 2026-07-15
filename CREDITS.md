@@ -105,3 +105,18 @@ Several `.wrl` geometry files (`body.wrl`, `propeller.wrl`,
 `asb_vrmfunc.m` helper originate from MathWorks' own Simulink 3D
 Animation examples and are carried over unchanged from the upstream
 repository.
+
+
+## A note on the intermediate contributors' rights
+
+The AUM capstone customization described above may have had multiple
+student contributors beyond what could be reconstructed from the
+source files alone. This document credits that intermediate work
+collectively and in good faith. If you are one of those contributors
+and want individual credit added (or removed), or if the university
+has a specific attribution requirement for coursework built on its
+premises, please open an issue or contact the maintainer — this file
+will be updated accordingly. GPL-3.0 only requires that modifications
+be marked and dated (which this document does); it does not by itself
+resolve questions of academic-work attribution, which is a separate,
+non-legal courtesy this project intends to honor.

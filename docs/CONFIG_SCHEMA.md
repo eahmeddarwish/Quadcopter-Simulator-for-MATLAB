@@ -30,6 +30,7 @@ migration logic keyed off it.
 | `scale_m_per_px`  | number        | Metres represented by one pixel of the floor-plan image. Default `0.0254` (1 inch/px). Set via the GUI's "Calibrate scale" tool (click two points a known distance apart) or by hand. |
 | `origin_px`       | `[x, y]`      | Pixel coordinates of the world origin ("home"/take-off point).           |
 | `bounds_px`       | object        | `{x_min, x_max, y_min, y_max}` — pixel bounding box of the usable flight area, used for validation/plot limits. |
+| `image_path`      | string        | **Derived, not stored in JSON.** Absolute path to the map image, computed by `AprilNav_Env_Load.m` as `fullfile(environment_folder, map.image)`. Only present on a struct returned by `AprilNav_Env_Load`, not in the raw `config.json` or in a struct fresh from `AprilNav_Env_Default`. |
 
 ## `flight` — flight envelope
 

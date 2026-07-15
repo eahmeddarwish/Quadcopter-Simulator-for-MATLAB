@@ -119,8 +119,8 @@ if fail == 0
 else
     fprintf('|  RESULT: %d passed, %d FAILED (of %d)         |\n', pass, fail, total);
     fprintf('|  Fix the items above before running.        |\n');
-    fprintf('|  Make sure your MATLAB current folder is    |\n');
-    fprintf('|  the repository''s matlab/ folder.            |\n');
+    fprintf('|  Make sure AprilNav is on your MATLAB path,  |\n');
+    fprintf('|  e.g. addpath(genpath(AprilNav_Root())).    |\n');
 end
 fprintf('+============================================+\n\n');
 

@@ -76,6 +76,12 @@ A ready-to-fly `demo_room` environment ships with the repo
 AprilTags, one obstacle, and one saved flight path — useful for
 verifying your setup before building a real environment.
 
+![demo_room environment preview](environments/demo_room/preview.png)
+
+*The bundled `demo_room` environment: tags (red), an obstacle (yellow),
+the saved "Out and back" path (blue), and the home/origin point
+(green), rendered over its floor-plan image.*
+
 ---
 
 ## Repository layout
@@ -137,6 +143,31 @@ Run `AprilNav_Check()` at any time to see exactly what's installed and
 what's missing.
 
 ---
+
+## Contributing & validation
+
+See [`CONTRIBUTING.md`](CONTRIBUTING.md). Every environment's
+`config.json` is validated on push/PR by a CI workflow
+(`.github/workflows/validate-environments.yml`), and can be run
+locally without MATLAB via:
+
+```
+python3 scripts/validate_environments.py
+```
+
+## Roadmap
+
+Ideas for future contributions — none required to use the project
+today, but tracked here for anyone who wants to push it further:
+
+- Multi-vehicle simulation (fleets sharing one environment).
+- A ROS 2 bridge for hardware-in-the-loop testing against a real
+  flight controller.
+- Automatic camera-pose-to-world-frame fusion for
+  `AprilNav_AprilTag_Vision.m` (currently intentionally left to the
+  user — see `docs/ARCHITECTURE.md`).
+- A headless/scripted mission runner for batch-simulating many paths
+  across many environments without opening the GUI each time.
 
 ## License
 
