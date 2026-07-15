@@ -1,5 +1,5 @@
 % AprilNav — configurable indoor quadcopter navigation & AprilTag toolbox
-% Version 1.0.0  2026-07-15
+% Version 1.1.0  2026-07-15
 %
 % Environment management
 %   AprilNav_Root              - Repository root path
@@ -19,6 +19,7 @@
 %   AprilNav_PlotMap             - Plot an environment's floor plan
 %   AprilNav_UsePath              - Stage a saved path for flight
 %   AprilNav_SaveMissionFiles     - Write trajectory/plot .mat files
+%   AprilNav_Animate3D            - Animated 3D flight view (native MATLAB, no toolbox)
 %
 % Flight & analysis
 %   AprilNav_RunMission           - Genericized flight driver (drives Simulink model)
