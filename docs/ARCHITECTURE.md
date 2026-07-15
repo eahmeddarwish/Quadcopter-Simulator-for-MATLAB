@@ -49,8 +49,7 @@ dimensions — everything is threaded through from `cfg`.
 
 ## 3. Flight execution
 
-`AprilNav_RunMission.m` is the genericized flight driver (renamed from
-the original project's `AUMQuad_Main.m`). It:
+`AprilNav_RunMission.m` is the genericized flight driver. It:
 
 1. Loads the active environment's config.
 2. Pulls vehicle physical parameters from `cfg.vehicle.*` (mass, arm
@@ -90,9 +89,8 @@ already drew in the GUI.
   Walks the flown trajectory and, for each tag in `cfg.tags`, records a
   detection whenever the vehicle passes within a configurable range of
   that tag's position. Works for any number of tags, anywhere in the
-  environment — this is a direct generalization of the original
-  `AUMQuad_AprilTag.m`, which had tag positions hardcoded for one
-  specific room.
+  environment — tag positions are read entirely from the active
+  environment's config rather than hardcoded for one specific room.
 - **`AprilNav_AprilTag_Vision.m`** (optional, new) — real detection.
   Wraps MATLAB's `readAprilTag` (Computer Vision Toolbox) to detect
   actual AprilTags in photos you provide, returning detected tag IDs,
@@ -115,9 +113,8 @@ annotate the 3D trajectory and per-axis tracking figures with
 `TAG_NAMES`/`TAG_TIMES` derived from each detected tag's dwell-window
 midpoint.
 
-`simulink/VR.wrl` provides the optional 3D scene. All AUM-specific
-geometry (the lobby walls/floor/ceiling and an aerial-photo backdrop)
-was removed and replaced with a plain neutral floor. The VRML `DEF`
+`simulink/VR.wrl` provides the optional 3D scene. It contains only a
+plain neutral floor — no building-specific geometry or imagery. The VRML `DEF`
 names that the Simulink VR Sink block's `FieldsWritten` parameter binds
 to at simulation time — `quadcopter`, `blade1`–`blade4`,
 `LandingMarker_Waypoint`, `LineIndexedList`, `LineCoordinates`, and the

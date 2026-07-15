@@ -5,8 +5,8 @@
 % Run this BEFORE AprilNav_RunMission to verify everything is in place.
 % Green checkmarks = ready. Red X = fix before running.
 %
-% This is a generalized continuation of the original AUMQuad_Check.m: it
-% no longer assumes any particular building's map/tag layout — it checks
+% This checker makes no assumption about any particular building's
+% map/tag layout — it checks
 % the generic toolbox files, then validates whatever environment is
 % currently ACTIVE (see AprilNav_Env_Load / AprilNav_EnvironmentSetup).
 %

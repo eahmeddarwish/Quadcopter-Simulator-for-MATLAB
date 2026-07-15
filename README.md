@@ -11,9 +11,9 @@ dynamics, a PID controller, an optional 3D VR visualization, and
 AprilTag detection (simulated by proximity, or real detection from
 captured photos).
 
-It began life as a university capstone project customized for one
-specific building. This release strips out every institution-specific
-assumption so **anyone** can point it at their own space.
+It began life as a customization built for one specific building.
+This release strips out every location-specific assumption so
+**anyone** can point it at their own space.
 
 > AprilNav is a derivative of
 > [cindyiskandar/Quadcopter_Control](https://github.com/cindyiskandar/Quadcopter_Control)

@@ -4,8 +4,8 @@ All notable changes to this project are documented in this file.
 
 ## [1.0.0] - 2026-07-15
 
-Initial public release of **AprilNav**, generalized from an AUM
-capstone customization of
+Initial public release of **AprilNav**, generalized into a fully
+configurable toolbox on top of
 [cindyiskandar/Quadcopter_Control](https://github.com/cindyiskandar/Quadcopter_Control).
 
 ### Added
@@ -25,25 +25,25 @@ capstone customization of
   `docs/CONFIG_SCHEMA.md`.
 
 ### Changed
-- All `AUMQuad_*` files renamed to `AprilNav_*` and rewritten to source
-  every environment-specific value (vehicle parameters, tag layout,
-  map scale/origin, flight envelope, Simulink model name) from the
-  active environment's config instead of hardcoded values.
-- `VR.wrl` stripped of AUM-specific building geometry and imagery;
+- All environment-facing scripts rewritten/renamed to `AprilNav_*` and
+  to source every environment-specific value (vehicle parameters, tag
+  layout, map scale/origin, flight envelope, Simulink model name) from
+  the active environment's config instead of hardcoded values.
+- `VR.wrl` stripped of all building-specific geometry and imagery;
   replaced with a plain neutral floor. All VRML `DEF` names required by
   the Simulink VR Sink block's field bindings were preserved unchanged.
 - `Obs.m` (previously unused/dead code) rewritten as `AprilNav_Obs.m`,
   a documented, config-driven, opt-in obstacle-plotting helper.
 
 ### Removed
-- All AUM branding, imagery (lobby textures, aerial photo backdrop),
-  and hardcoded facility data.
-- `Interface.m` menu console and its stale duplicate copy (superseded
+- All location-specific branding, imagery (interior textures, aerial
+  photo backdrop), and hardcoded facility data.
+- A menu-driven text console and its stale duplicate copy (superseded
   by the environment system and `AprilNav_EnvironmentSetup.m`).
 
 ### Fixed (relative to the source project)
-- A stale duplicate `Interface/AUMQuad_Main.m` referenced the wrong
-  Simulink model filename; the duplicate was removed entirely.
+- A stale duplicate copy of the main flight-driver script referenced
+  the wrong Simulink model filename; the duplicate was removed entirely.
 - A stray, unused, invalid mid-script local function block in the
   results script (would have caused a MATLAB parse error).
 - A local pre-flight-check helper function that was placed in the

@@ -20,10 +20,9 @@
 %   W_1, W_2, W_3, W_4          — motor speeds [rad/s]
 %   t_CL                         — simulation time vector [s]
 %
-% This is a generalized, environment-driven continuation of the original
-% AUMQuad_Results.m: AprilTag annotations now cover however many tags the
-% ACTIVE environment defines (not a hardcoded 3), and their timing comes
-% from the actual detection log instead of fixed [25, 45, 65] seconds.
+% AprilTag annotations cover however many tags the ACTIVE environment
+% defines (not a fixed count), and their timing comes from the actual
+% detection log instead of any fixed set of hardcoded timestamps.
 %
 % AprilNav — configurable indoor quadcopter navigation & AprilTag toolbox.
 % Original control/VR core: cindyiskandar/Quadcopter_Control (GPL-3.0).

@@ -30,8 +30,7 @@ function tagLog = AprilNav_AprilTag_Sim(t_vec, X_CL, Y_CL, Z_CL, cfg)
 %   tagLog = AprilNav_AprilTag_Sim(t_CL, X_CL, Y_CL, Z_CL);
 %
 % AprilNav — configurable indoor quadcopter navigation & AprilTag toolbox.
-% Adapted from AUMQuad_AprilTag.m; derived from
-% cindyiskandar/Quadcopter_Control (GPL-3.0). See CREDITS.md.
+% Derived from cindyiskandar/Quadcopter_Control (GPL-3.0). See CREDITS.md.
 % =========================================================================
 
 if nargin < 5 || isempty(cfg)

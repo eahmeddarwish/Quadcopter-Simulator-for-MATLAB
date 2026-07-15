@@ -10,12 +10,11 @@ function AprilNav_PlotMap(ax, cfg)
 %     x_m = (px - origin_px(1)) * scale
 %     y_m = (py - origin_px(2)) * scale
 %
-%   This replaces the original, hardcoded plotMWSchematic.m (which always
-%   loaded 'MWAerial1.png' at a fixed 0.254 m/px scale for the AUM lobby).
+%   Unlike a fixed, hardcoded map/scale, everything here is read from
+%   the active environment's config.
 %
 % AprilNav — configurable indoor quadcopter navigation & AprilTag toolbox.
-% Adapted from plotMWSchematic.m, itself adapted from
-% cindyiskandar/Quadcopter_Control (GPL-3.0). See CREDITS.md.
+% Derived from cindyiskandar/Quadcopter_Control (GPL-3.0). See CREDITS.md.
 
 if nargin < 2 || isempty(cfg)
     cfg = AprilNav_Env_Load();

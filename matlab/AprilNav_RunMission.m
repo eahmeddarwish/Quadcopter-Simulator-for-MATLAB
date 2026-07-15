@@ -10,10 +10,9 @@
 %   3) AprilNav_RunMission          <- you are here
 %   4) AprilNav_Results             -- post-simulation analysis
 %
-% This is a generalized, environment-driven continuation of the original
-% AUMQuad_Main.m: every constant that used to be hardcoded for one
-% specific building (map origin, pixel scale, vehicle mass/inertia, hover
-% speed, ...) is now read from the active environment's config.json via
+% Every constant that would otherwise be hardcoded for one specific
+% building (map origin, pixel scale, vehicle mass/inertia, hover speed,
+% ...) is read from the active environment's config.json via
 % AprilNav_Env_Load(). The variable names fed to the bundled Simulink
 % model (Xd, Yd, Zd, Time, xp, yp, m, Ixx, Iyy, Izz, I, b, d, l,
 % speed_rads, u1..u4_min/max) are UNCHANGED from the original so the

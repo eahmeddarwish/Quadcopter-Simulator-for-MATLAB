@@ -1,10 +1,8 @@
 #VRML V2.0 utf8
 # AprilNav — generic Virtual Reality world for the quadcopter VR Sink block.
 #
-# This file replaces the original AUM-specific "AHMap" building Inline
-# (asbQuadcopterAHBase.wrl + photographic AUM lobby textures) with a plain,
-# neutral floor so the model runs out of the box for ANY environment without
-# requiring building photos or textures. Everything below other than the
+# This file provides a plain, neutral floor so the model runs out of the
+# box for ANY environment without requiring building photos or textures. Everything below other than the
 # floor/background is required by the Simulink VR Sink block's field
 # bindings (quadcopter, blade1-4, LandingMarker_Waypoint, LineIndexedList,
 # LineCoordinates) -- do not rename these DEF nodes.
