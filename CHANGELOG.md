@@ -2,6 +2,33 @@
 
 All notable changes to this project are documented in this file.
 
+## [1.1.0] - 2026-07-15
+
+### Added
+- `AprilNav_Animate3D.m` — new animated 3D flight visualization built on
+  core MATLAB graphics only (`plot3` + `drawnow`), with zero toolbox
+  dependency. Reads the same `To Workspace` trajectory variables as
+  `AprilNav_Results.m`, overlays the active environment's AprilTags and
+  obstacles, and supports `'Speed'` and `'TrailLength'` name-value options.
+  Works identically on every MATLAB release, old or new.
+- Note in `docs/ARCHITECTURE.md` documenting that MathWorks has
+  deprecated the classic VRML-based Simulink 3D Animation (VR Sink)
+  viewer in favor of an Unreal-Engine-based "Simulation 3D" system, and
+  that the VR Sink viewer window may not open at all on some current
+  MATLAB releases even though the block still runs without error.
+  `AprilNav_Animate3D()` is now the recommended default 3D view;
+  `simulink/VR.wrl` remains for users on older releases where the VRML
+  viewer still works.
+
+### Changed
+- `AprilNav_Check.m` now also verifies `AprilNav_Animate3D.m` is present.
+- `matlab/Contents.m` updated with the new function entry, version
+  bumped to 1.1.0.
+- `README.md` updated: Quick Start now calls `AprilNav_Animate3D()`,
+  the Architecture file tree lists the new file, the Honest Limitations
+  section explains the VR Sink deprecation, and the Roadmap marks
+  native animated 3D visualization as done.
+
 ## [1.0.0] - 2026-07-15
 
 Initial public release of **AprilNav**, generalized into a fully

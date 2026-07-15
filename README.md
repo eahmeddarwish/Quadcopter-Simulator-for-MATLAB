@@ -1,9 +1,9 @@
 <div align="center">
 
-# 🚁 AprilNav
+# 🚁 Quadcopter Simulator for MATLAB
 
-### Configurable indoor quadcopter navigation & AprilTag simulation toolbox
-### حزمة أدوات قابلة للتخصيص لملاحة الكوادكوبتر الداخلية ومحاكاة AprilTag
+### Configurable indoor quadcopter navigation & AprilTag simulation toolbox (formerly "AprilNav")
+### حزمة أدوات قابلة للتخصيص لملاحة الكوادكوبتر الداخلية ومحاكاة AprilTag (باسمها السابق "AprilNav")
 
 [![MATLAB](https://img.shields.io/badge/MATLAB-R2021a+-0076A8?logo=mathworks&logoColor=white)](https://www.mathworks.com/products/matlab.html)
 [![Simulink](https://img.shields.io/badge/Simulink-required-orange?logo=mathworks&logoColor=white)](https://www.mathworks.com/products/simulink.html)
@@ -134,6 +134,7 @@ AprilNav/
 │   ├── AprilNav_AprilTag_Sim.m    ← Proximity-based tag detection (default)
 │   ├── AprilNav_AprilTag_Vision.m ← Real image-based tag detection (optional)
 │   ├── AprilNav_Results.m         ← Post-flight plots + tag annotations
+│   ├── AprilNav_Animate3D.m       ← Animated 3D flight (native, any MATLAB, no toolbox)
 │   └── AprilNav_Check.m           ← Pre-flight environment/toolbox check
 └── environments/
     └── demo_room/                ← Ready-to-fly example environment
@@ -203,7 +204,10 @@ AprilNav_Env_SetActive('demo_room');    % use the bundled example / استخدم
 ```matlab
 AprilNav_UsePath('Out and back');   % stage a saved path / جهّز مسارًا محفوظًا
 % open simulink/QuadcopterDynamics.slx, run it, then:
-AprilNav_Results();
+AprilNav_Results();       % plots + tag annotations / رسومات وتوضيحات العلامات
+AprilNav_Animate3D();     % animated 3D flight, works on ANY MATLAB release,
+                          % no toolbox required / تصور ثلاثي الأبعاد متحرك، يعمل
+                          % على أي إصدار MATLAB، من غير أي توولبوكس إضافي
 ```
 
 ---
@@ -241,9 +245,14 @@ useful for verifying your setup before building a real environment:
 - **Obstacles are a manual planning aid, not a collision system.**
   `AprilNav_Obs.m` plots obstacles for visual reference only; no automatic
   path validation or avoidance is performed against them.
-- **VR visualization is optional and cosmetic.** `simulink/VR.wrl` requires
-  Simulink 3D Animation; everything else (flight, detection, results)
-  works without it.
+- **`simulink/VR.wrl`'s VR Sink view is optional, cosmetic, and not
+  guaranteed on every MATLAB release.** MathWorks has deprecated the
+  classic VRML-based Simulink 3D Animation viewer in favor of an
+  Unreal-Engine-based system; on some current releases the VR Sink
+  viewer window does not open at all. Use `AprilNav_Animate3D()` instead
+  for a 3D flight view guaranteed to work on any MATLAB release, old or
+  new, with zero toolbox dependency. Everything else (flight, detection,
+  results) already works without any VR toolbox.
 - **This is a simulation/planning toolbox, not a certified flight
   controller.** Treat every result as a planning aid — always validate
   independently before flying real hardware.
@@ -260,9 +269,14 @@ useful for verifying your setup before building a real environment:
 - **العوائق أداة تخطيطٍ يدوية، لا نظام تصادم.** ترسم `AprilNav_Obs.m`
   العوائق لغرض المرجعية البصرية فقط؛ ولا يُجرى أي تحقّقٍ أو تجنّبٍ تلقائي
   للمسار حيالها.
-- **التصور ثلاثي الأبعاد اختياري وتجميلي.** يتطلّب `simulink/VR.wrl` وجود
-  Simulink 3D Animation؛ أما كل شيءٍ آخر (الطيران، الكشف، النتائج) فيعمل
-  من دونه.
+- **عرض VR Sink في `simulink/VR.wrl` اختياري وتجميلي وغير مضمون على كل
+  إصدارات MATLAB.** قامت MathWorks بإيقاف استخدام عارض Simulink 3D
+  Animation القديم القائم على VRML لصالح نظامٍ جديد قائم على Unreal
+  Engine؛ وفي بعض الإصدارات الحديثة لا تفتح نافذة VR Sink إطلاقًا. استخدم
+  `AprilNav_Animate3D()` بدلًا منه للحصول على عرضٍ ثلاثي الأبعاد مضمون
+  العمل على أي إصدار MATLAB، قديمًا كان أو حديثًا، من غير أي اعتمادٍ على
+  توولبوكس. كل شيءٍ آخر (الطيران، الكشف، النتائج) يعمل بالفعل من غير أي
+  توولبوكس VR.
 - **هذه حزمة محاكاةٍ وتخطيطٍ، لا وحدة تحكم طيرانٍ معتمَدة.** تعامَل مع كل
   نتيجةٍ باعتبارها أداة تخطيطٍ — تحقّق دائمًا بشكلٍ مستقلٍّ قبل تشغيل أي
   عتادٍ حقيقي.
@@ -275,6 +289,7 @@ useful for verifying your setup before building a real environment:
 - [x] Interactive GUI setup wizard / معالج إعدادٍ تفاعلي
 - [x] Dual AprilTag detection modes (simulated + real vision) / وضعا كشفٍ لعلامات AprilTag (محاكاة + رؤية حقيقية)
 - [x] CI-validated environment configs / إعدادات بيئةٍ يتحقق منها CI
+- [x] Native-MATLAB animated 3D flight view, no toolbox required (`AprilNav_Animate3D`) / عرض طيرانٍ ثلاثي أبعادٍ متحرك بلا توولبوكس
 - [ ] Multi-vehicle simulation (fleets sharing one environment) / محاكاة مركباتٍ متعددة
 - [ ] ROS 2 bridge for hardware-in-the-loop testing / جسر ROS 2 للاختبار مع عتادٍ حقيقي
 - [ ] Automatic camera-pose-to-world-frame fusion for vision mode / دمجٌ تلقائي لوضعية الكاميرا مع الإطار العالمي
