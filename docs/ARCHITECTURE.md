@@ -113,13 +113,26 @@ annotate the 3D trajectory and per-axis tracking figures with
 `TAG_NAMES`/`TAG_TIMES` derived from each detected tag's dwell-window
 midpoint.
 
-`simulink/VR.wrl` provides the optional 3D scene. It contains only a
-plain neutral floor — no building-specific geometry or imagery. The VRML `DEF`
-names that the Simulink VR Sink block's `FieldsWritten` parameter binds
-to at simulation time — `quadcopter`, `blade1`–`blade4`,
-`LandingMarker_Waypoint`, `LineIndexedList`, `LineCoordinates`, and the
-three named viewpoints — were preserved exactly, since renaming any of
-them would silently disconnect that signal from the visualization.
+`simulink/VR.wrl` provides an optional 3D scene via the Simulink VR Sink
+block. It contains only a plain neutral floor — no building-specific
+geometry or imagery. The VRML `DEF` names that the block's
+`FieldsWritten` parameter binds to at simulation time — `quadcopter`,
+`blade1`–`blade4`, `LandingMarker_Waypoint`, `LineIndexedList`,
+`LineCoordinates`, and the three named viewpoints — were preserved
+exactly, since renaming any of them would silently disconnect that
+signal from the visualization.
+
+**This VRML/VR Sink path is legacy and not guaranteed on every MATLAB
+release.** MathWorks has deprecated the classic VRML-based Simulink 3D
+Animation viewer and is migrating toward an Unreal-Engine-based
+"Simulation 3D" system; on some current releases the VR Sink viewer
+window does not open at all even though the block itself runs without
+error. `AprilNav_Animate3D.m` provides a native-MATLAB alternative —
+`plot3` + `drawnow`, zero toolbox dependency — that animates the same
+flown trajectory, with the active environment's tags and obstacles
+overlaid, and is guaranteed to work on any MATLAB release, old or new.
+It is the recommended default; `VR.wrl` remains for users on older
+releases where the VRML viewer still works.
 
 ## 7. Pre-flight checks
 
