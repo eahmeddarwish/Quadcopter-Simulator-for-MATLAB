@@ -22,3 +22,6 @@ Thumbs.db
 # NOT ignored — environments/ is meant to be committed/shared. If you
 # want to keep a personal environment private, ignore it explicitly:
 # environments/my-private-room/
+
+# Sandbox artifact — safe to delete, not part of the project
+.git_broken/
